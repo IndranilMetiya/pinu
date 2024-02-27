@@ -52,7 +52,7 @@ public class DaoService {
 		System.err.println(productRequest.getCatagoryName());
 		Catagory category = catagoryRepo.findByCategoryName(productRequest.getCatagoryName());
 		if (category == null) {
-			System.err.println("Category not found");
+			System.err.println("Category not found 09");
 			throw new RuntimeException("Category not found");
 		}
 

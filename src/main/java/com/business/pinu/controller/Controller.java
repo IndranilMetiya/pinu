@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.business.pinu.DTO.ProductRequest;
-import com.business.pinu.entity.Product;
 import com.business.pinu.repository.CatagoryRepo;
 import com.business.pinu.repository.ProductRepo;
 import com.business.pinu.repository.PropertyRepo;
