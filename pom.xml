@@ -11,7 +11,7 @@
 	<groupId>com.business</groupId>
 	<artifactId>pinu</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>pinu</name>
 	<description>Pinu business digital</description>
 	<properties>
