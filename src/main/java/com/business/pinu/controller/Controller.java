@@ -1,13 +1,17 @@
 package com.business.pinu.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.business.pinu.DTO.ProductRequest;
+import com.business.pinu.DTO.StockDTO;
 import com.business.pinu.repository.CatagoryRepo;
 import com.business.pinu.repository.ProductRepo;
 import com.business.pinu.repository.PropertyRepo;
@@ -62,6 +66,13 @@ public class Controller {
 //	            return ResponseEntity.ok("Product added successfully with given properties");
 //	        }
 //	    }
+	   
+	   
+	   @GetMapping("/getAllStock")
+	    public ResponseEntity<List<StockDTO>> getAllStock() {
+		   List<StockDTO> stockDTOs  =  daoService.getAllStockDetails();
+	        return ResponseEntity.ok(stockDTOs);
+	}
 	   
 	   
 	}

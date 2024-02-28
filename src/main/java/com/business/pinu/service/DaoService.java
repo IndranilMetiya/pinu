@@ -1,5 +1,6 @@
 package com.business.pinu.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.business.pinu.DTO.ProductRequest;
+import com.business.pinu.DTO.StockDTO;
 import com.business.pinu.entity.Catagory;
 import com.business.pinu.entity.Product;
 import com.business.pinu.entity.Property;
@@ -157,6 +159,40 @@ public class DaoService {
 		}
 
 	}
+	
+	
+	public List<StockDTO> getAllStockDetails(){
+		
+		List<Stock> stocks=stockRepo.findAll();
+		List<StockDTO> stockDTOs=new ArrayList<StockDTO>();
+		StockDTO sDto=new StockDTO();
+		for (Stock stock : stocks) {
+			
+			sDto=new StockDTO();
+			
+			sDto.setStockId(stock.getStockId());
+			sDto.setStockQuantityAvl(stock.getQuantityAvl());
+			sDto.setCategoryName(stock.getProperty().getProduct().getCatagory().getCategoryName());
+			sDto.setProductName(stock.getProperty().getProduct().getProductName());
+			sDto.setPropertyName(stock.getProperty().getPropertyName());
+			sDto.setSellingPriceProperty(stock.getProperty().getPrice());
+			sDto.setHeightProperty(stock.getProperty().getHeight());
+			sDto.setHeightUnitProperty(stock.getProperty().getHeightUnit());
+			sDto.setWidthProperty(stock.getProperty().getWidth());
+			sDto.setWidthUnitProperty(stock.getProperty().getWidthUnit());
+			sDto.setWeightProperty(stock.getProperty().getWeight());
+			sDto.setWeightUnitProperty(stock.getProperty().getWeightUnit());
+			
+			stockDTOs.add(sDto);
+			
+		}
+		
+		return stockDTOs;
+		
+	}
+	
+	
+	//----------Helper function - -------------------------------
 
 	public Stock findExistingStock(Property property) {
 		List<Stock> stocks = stockRepo.findAll();
